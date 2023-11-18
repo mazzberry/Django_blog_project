@@ -16,4 +16,4 @@ class Post(models.Model):
     status = models.CharField(choices=STATUS_CHOICES , max_length=3)
 
     def __str__(self):
-        return f'{self.author}  {self.title}'
+        return f'{self.author} : {self.title}'
