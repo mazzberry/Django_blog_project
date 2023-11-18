@@ -7,12 +7,12 @@ def homepage_url(request):
     context={
         'page-id':'home page',
     }
-    return render(request, 'home_page/home.html',context)
+    return render(request, '_base.html',context)
 
 def blog(request):
     all_posts = Post.objects.all()
     context = {
         'all_p':all_posts
     }
-
-    return render(request, 'home_page/blog.html',context)
+################# temp name nazashti
+    return render(request, 'blog.blog.html',context)
