@@ -9,15 +9,17 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-9">
-                {% for foo in all_p %}
+
+                {% for post in posts %}
+
                     <div class="card shadow-sm my-3">
                         <div class="card-body">
-                            <h4 class="author">by: {{ foo.author }}</h4>
-                            <h5 class="card-subtitle mb-2 text-muted small py-2">{{ foo.title }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted small py-2">{{ foo.datetime_created }}</h6>
+                            <h4 class="author">by: {{ post.author }}</h4>
+                            <h5 class="card-subtitle mb-2 text-muted small py-2">{{ post.title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted small py-2">{{ post.datetime_created }}</h6>
                             <p class="card-text py-3">
 
-                                {{ foo.text }}
+                                {{ post.text }}
 
                             </p>
                             <div class="btn btn-sm btn-success">Read More</div>
