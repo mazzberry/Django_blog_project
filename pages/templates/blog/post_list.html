@@ -22,7 +22,9 @@
                                 {{ post.text }}
 
                             </p>
-                            <div class="btn btn-sm btn-success">Read More</div>
+                            <div>
+                                <a class="btn btn-sm btn-success" href="{% url 'post-detail' post.id %}">Read More </a>
+                            </div>
                         </div>
                     </div>
 
