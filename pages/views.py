@@ -7,7 +7,8 @@ from django.shortcuts import get_object_or_404
 
 
 def blog(request):
-    all_posts = Post.objects.all()
+    # all_posts = Post.objects.all()
+    all_posts = Post.objects.filter(status = 'pub')
     context = {
         'posts':all_posts
     }
