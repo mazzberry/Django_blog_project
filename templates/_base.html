@@ -14,15 +14,16 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Kevok.net</a>
+        <a class="navbar-brand" href="{% url 'blog-page' %}">Kevok.net</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'blog-page' %}">Home</a>
+                <a class="nav-link" href="{% url 'blog-page' %}">Blog</a>
+                <a class="nav-link" href="{% url 'new-post' %}">New Post</a>
             </div>
         </div>
         <div class="mx-2 text-white">Welcome</div>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 
@@ -16,4 +17,8 @@ class Post(models.Model):
     status = models.CharField(choices=STATUS_CHOICES , max_length=3)
 
     def __str__(self):
-        return f'{self.author} : {self.title}'
+        return f'{self.title}'
+
+    def get_absolute_url(self):#mohem va tamrin shavad baz
+        return reverse('post-detail',args=[self.id])
+

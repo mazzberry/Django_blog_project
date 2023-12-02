@@ -3,6 +3,7 @@ from .models import Post
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
 
+
 # Create your tests here.
 
 class Blog_Post_test(TestCase):
@@ -37,6 +38,16 @@ class Blog_Post_test(TestCase):
     #         text = 'lorem impsum post2',
     #         status = Post.STATUS_CHOICES[1][0],#draft
     #     )
+
+    def test_post_model_str(self):
+        post = self.post1
+        self.assertEquals(str(post), post.title)
+
+    def test_post_detail(self):
+        self.assertEquals(self.post1.title, 'test title')
+        self.assertEquals(self.post1.text, 'salam in yek matn test hast')
+
+
 
     def test_postlist_url(self):
 
@@ -84,6 +95,29 @@ class Blog_Post_test(TestCase):
         self.assertContains(response,self.post1.title)
         self.assertNotContains(response, self.post2.title)
 
+    def test_create_post_view(self):
+        response= self.client.post(reverse('new-post'),{
+            'title':'some title',
+            'text':'some test text',
+            'status':'pub',
+            'author':self.user.id,
+        })
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(Post.objects.last().title, 'some title')
+        self.assertEquals(Post.objects.last().text, 'some test text')
 
+    def test_update_post_view(self):
+        response= self.client.post(reverse('update-post', args=[self.post2.id]), {
+            'title':' post 2 some title updated ',
+            'text':'this text updated',
+            'status': 'pub',
+            'author': self.post2.author.id,
+             })
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(Post.objects.last().title, 'post 2 some title updated')
+        self.assertEquals(Post.objects.last().text, 'this text updated')
 
+    def test_delete_post_view(self):
+        response = self.client.post(reverse('delete-post',args=[self.post1.id]))
+        self.assertEquals(response.status_code, 302)
 
