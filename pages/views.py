@@ -78,7 +78,7 @@ class CreatePostView(generic.CreateView):
 
 # def postUpdate(request, pk):
 #     post = get_object_or_404(Post, pk=pk)
-#     # post = Post.objects.ger(pk=pk)
+#     # post = Post.objects.get(pk=pk)
 #
 #     form = newPostForm(request.POST or None, instance=post)# neveshtan etelaat ghabli baray neshan dadan be user
 #
