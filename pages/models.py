@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -19,6 +20,6 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.title}'
 
-    def get_absolute_url(self):#mohem va tamrin shavad baz
-        return reverse('post-detail',args=[self.id])
+    def get_absolute_url(self):#mohem va tamrin shavad baz...
+        return reverse('post-detail',args=[self.id]) #PISHBINI url daryafti baray namayesh object dar site
 
