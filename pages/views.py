@@ -1,7 +1,6 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Post
-from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from .forms import newPostForm
 from django.views import generic
@@ -18,7 +17,7 @@ from django.urls import reverse_lazy
 #     }
 #     return render(request, 'blog/post_list.html', context)
 class PostListView(generic.ListView):
-
+    model = Post
     template_name = 'blog/post_list.html'
     context_object_name = 'posts'
 
